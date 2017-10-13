@@ -27,3 +27,43 @@ for col in df.columns:
         df.rename(columns={col:'#' + col[1:]}, inplace=True) 
 
 df.head()
+
+df['country'] = df.index
+df = df.set_index('Gold')
+df.head()
+
+df = df.reset_index()
+df.head()
+
+df = pd.read_csv('census.csv')
+df.head()
+
+df['SUMLEV'].unique()
+
+df=df[df['SUMLEV'] == 50]
+df.head()
+
+columns_to_keep = ['STNAME',
+                   'CTYNAME',
+                   'BIRTHS2010',
+                   'BIRTHS2011',
+                   'BIRTHS2012',
+                   'BIRTHS2013',
+                   'BIRTHS2014',
+                   'BIRTHS2015',
+                   'POPESTIMATE2010',
+                   'POPESTIMATE2011',
+                   'POPESTIMATE2012',
+                   'POPESTIMATE2013',
+                   'POPESTIMATE2014',
+                   'POPESTIMATE2015']
+df = df[columns_to_keep]
+df.head()
+
+df = df.set_index(['STNAME', 'CTYNAME'])
+df.head()
+
+df.loc['Michigan', 'Washtenaw County']
+
+df.loc[ [('Michigan', 'Washtenaw County'),
+         ('Michigan', 'Wayne County')] ]
