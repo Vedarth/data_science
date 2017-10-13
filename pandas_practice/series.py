@@ -20,3 +20,13 @@ s = pd.Series(sports)
 s
 
 s.index
+
+s = pd.Series(['Tiger', 'Bear', 'Moose'], index=['India', 'America', 'Canada'])
+s
+
+sports = {'Archery': 'Bhutan',
+          'Golf': 'Scotland',
+          'Sumo': 'Japan',
+          'Taekwondo': 'South Korea'}
+s = pd.Series(sports, index=['Golf', 'Sumo', 'Hockey'])
+s
