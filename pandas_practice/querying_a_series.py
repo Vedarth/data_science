@@ -33,3 +33,16 @@ total = 0
 for item in s:
     total+=item
 print(total)
+
+s = pd.Series(np.random.randint(0,1000,10000))
+s.head()
+
+len(s)
+
+%%timeit -n 100
+summary = 0
+for item in s:
+    summary+=item
+
+%%timeit -n 100
+summary = np.sum(s)
