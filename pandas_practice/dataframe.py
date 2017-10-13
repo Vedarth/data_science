@@ -32,3 +32,15 @@ df.loc[:,['Name', 'Cost']]
 df.drop('Store 1')
 
 df
+
+copy_df = df.copy()
+copy_df = copy_df.drop('Store 1')
+copy_df
+
+copy_df.drop?
+
+del copy_df['Name']
+copy_df
+
+df['Location'] = None
+df
