@@ -62,3 +62,29 @@ for label, value in s.iteritems():
 %%timeit -n 10
 s = pd.Series(np.random.randint(0,1000,10000))
 s+=2
+
+s = pd.Series([1, 2, 3])
+s.loc['Animal'] = 'Bears'
+s
+
+original_sports = pd.Series({'Archery': 'Bhutan',
+                             'Golf': 'Scotland',
+                             'Sumo': 'Japan',
+                             'Taekwondo': 'South Korea'})
+cricket_loving_countries = pd.Series(['Australia',
+                                      'Barbados',
+                                      'Pakistan',
+                                      'England'], 
+                                   index=['Cricket',
+                                          'Cricket',
+                                          'Cricket',
+                                          'Cricket'])
+all_countries = original_sports.append(cricket_loving_countries)
+
+original_sports
+
+cricket_loving_countries
+
+all_countries
+
+all_countries.loc['Cricket']
