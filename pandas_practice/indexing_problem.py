@@ -1,3 +1,11 @@
+"""
+Reindexthe purchase records DataFrame to be indexed hierarchally, first by store
+,then by person. Name these indexes ''Location
+ and 'Name'. Then add a new entry.
+"""
+
+
+
 purchase_1 = pd.Series({'Name': 'Chris',
                         'Item Purchased': 'Dog Food',
                         'Cost': 22.50})
