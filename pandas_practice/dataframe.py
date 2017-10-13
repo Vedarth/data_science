@@ -16,3 +16,19 @@ df.loc['Store 2']
 type(df.loc['Store 2'])
 
 df.loc['Store 1']
+
+df.loc['Store 1', 'Cost']
+
+df.T
+
+df.T.loc['Cost']
+
+df['Cost']
+
+df.loc['Store 1']['Cost']
+
+df.loc[:,['Name', 'Cost']]
+
+df.drop('Store 1')
+
+df
