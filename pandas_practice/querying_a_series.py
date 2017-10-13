@@ -46,3 +46,19 @@ for item in s:
 
 %%timeit -n 100
 summary = np.sum(s)
+
+s+=2
+s.head()
+
+for label, value in s.iteritems():
+    s.set_value(label, value+2)
+s.head()
+
+%%timeit -n 10
+s = pd.Series(np.random.randint(0,1000,10000))
+for label, value in s.iteritems():
+    s.loc[label]= value+2
+
+%%timeit -n 10
+s = pd.Series(np.random.randint(0,1000,10000))
+s+=2
