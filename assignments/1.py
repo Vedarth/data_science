@@ -43,3 +43,14 @@ def answer_two():
             dif = df.iloc[1] - df.iloc[6]
             con = df.iloc[i]
     return str(dif)
+
+def answer_three():
+    lar_diff = 0
+    for i in range(len(df)):
+        summ_gold = df.iloc[1]
+        win_gold = df.iloc[6]
+        diff = (summ_gold - win_gold)/(summ_gold + win_gold)
+        if (lar_dif < diff) and (summ_gold>=1) and (win_gold>=1):
+            lar_diff = diff
+            con = df.iloc[i]
+    return str(con)
