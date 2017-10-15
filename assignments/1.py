@@ -20,10 +20,12 @@ df['ID'] = names_ids.str[1].str[:3] # the [1] element is the abbreviation or ID 
 df = df.drop('Totals')
 df.head()
 
+
 def answer_zero():
     # This function returns the row for Afghanistan, which is a Series object. The assignment
     con = df.iloc[0]
     return str(con)
+
 
 def answer_one():
     max_gold = 0
@@ -32,19 +34,22 @@ def answer_one():
             max_gold = df.iloc[i].iloc[1]
             con = df.iloc[i]
     return con
+
+
 def answer_two():
     dif = 0
     for i in range(len(df)):
-        if dif < (df.iloc[1] - df.iloc[6]):
-            dif = df.iloc[1] - df.iloc[6]
+        if dif < (df.iloc[i][1] - df.iloc[i][6]):
+            dif = df.iloc[i][1] - df.iloc[i][6]
             con = df.iloc[i]
     return str(dif)
+
 
 def answer_three():
     lar_diff = 0
     for i in range(len(df)):
-        summ_gold = df.iloc[1]
-        win_gold = df.iloc[6]
+        summ_gold = df.iloc[i][1]
+        win_gold = df.iloc[i][6]
         diff = (summ_gold - win_gold)/(summ_gold + win_gold)
         if (lar_dif < diff) and (summ_gold>=1) and (win_gold>=1):
             lar_diff = diff
