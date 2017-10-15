@@ -28,3 +28,10 @@ def answer_zero():
             max_gold = df.iloc[i].iloc[1]
             con = df.iloc[i]
     return con
+
+def answer_one():
+    for i in range(len(df)):
+        if max_gold < df.iloc[i].iloc[1]:
+            max_gold = df.iloc[i].iloc[1]
+            con = df.iloc[i]
+    return con
