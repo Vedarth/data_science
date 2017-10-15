@@ -22,20 +22,16 @@ df.head()
 
 def answer_zero():
     # This function returns the row for Afghanistan, which is a Series object. The assignment
+    con = df.iloc[0]
+    return str(con)
+
+def answer_one():
     max_gold = 0
     for i in range(len(df)):
         if max_gold < df.iloc[i].iloc[1]:
             max_gold = df.iloc[i].iloc[1]
             con = df.iloc[i]
     return con
-
-def answer_one():
-    for i in range(len(df)):
-        if max_gold < df.iloc[i].iloc[1]:
-            max_gold = df.iloc[i].iloc[1]
-            con = df.iloc[i]
-    return con
-
 def answer_two():
     dif = 0
     for i in range(len(df)):
