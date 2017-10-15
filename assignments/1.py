@@ -19,3 +19,12 @@ df['ID'] = names_ids.str[1].str[:3] # the [1] element is the abbreviation or ID 
 
 df = df.drop('Totals')
 df.head()
+
+def answer_zero():
+    # This function returns the row for Afghanistan, which is a Series object. The assignment
+    max_gold = 0
+    for i in range(len(df)):
+        if max_gold < df.iloc[i].iloc[1]:
+            max_gold = df.iloc[i].iloc[1]
+            con = df.iloc[i]
+    return con
