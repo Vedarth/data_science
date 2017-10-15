@@ -35,3 +35,11 @@ def answer_one():
             max_gold = df.iloc[i].iloc[1]
             con = df.iloc[i]
     return con
+
+def answer_two():
+    dif = 0
+    for i in range(len(df)):
+        if dif < (df.iloc[1] - df.iloc[6]):
+            dif = df.iloc[1] - df.iloc[6]
+            con = df.iloc[i]
+    return str(dif)
