@@ -71,27 +71,10 @@ def answer_five():
 answer_five()
 
 def answer_six():
-    county = list()
-    max_county = list()
-    j = 1
-    i=0
-    while i < 3193:
-        county = []
-        st = census_df.iloc[i][5]
-        while int(census_df.iloc[i].iloc[3]) == j:
-            county.append((census_df.iloc[i]).iloc[7])
-            i += 1
-            try:
-                if int(census_df.iloc[i].iloc[3]) != j:
-                    top_county = sorted(county)[-3:]
-                    max_county.append((sum(top_county), st))
-            except:
-                top_county = sorted(county)[-3:]
-                max_county.append((sum(top_county), st))
-                break
-        j += 1
-    max_county.sort(reverse=True)
-    return list(map(lambda x:(x[1]),max_county[0:3]))
+    counties_df = census_df[census_df['SUMLEV'] == 50]
+    top_counties_df = counties_df.sort_values(by=['STNAME','CENSUS2010POP'],ascending=False).groupby('STNAME').head(3)
+    ans = top_counties_df.groupby('STNAME').sum().sort_values(by='CENSUS2010POP', ascending=False).head(3).index.tolist()
+    return ans
 answer_six()
 
 def answer_seven():
