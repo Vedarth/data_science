@@ -81,3 +81,27 @@ def answer_five():
             st = census_df.iloc[i][5]
     return st
 answer_five()
+
+def answer_six():
+    county = list()
+    max_county = list()
+    j = 1
+    i=0
+    while i < 3193:
+        county = []
+        st = census_df.iloc[i][5]
+        while int(census_df.iloc[i].iloc[3]) == j:
+            county.append((census_df.iloc[i]).iloc[7])
+            i += 1
+            try:
+                if int(census_df.iloc[i].iloc[3]) != j:
+                    top_county = sorted(county)[-3:]
+                    max_county.append((sum(top_county), st))
+            except:
+                top_county = sorted(county)[-3:]
+                max_county.append((sum(top_county), st))
+                break
+        j += 1
+    max_county.sort(reverse=True)
+    return list(map(lambda x:(x[1]),max_county[0:3]))
+answer_six()
