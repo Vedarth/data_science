@@ -58,10 +58,7 @@ def answer_three():
 answer_three()
 
 def answer_four():
-    Points = list()
-    for i in range(len(df)):
-        Points.append(df.iloc[i][11]*3 + df.iloc[i][12] + df.iloc[i][13])
-    Points = pd.Series(Points) 
+    Points = 3*df['Gold.2'] + 2*df['Silver.2'] + 1*df['Bronze.2']
     return Points
 answer_four()
 
