@@ -25,7 +25,7 @@ def answer_zero():
     # This function returns the row for Afghanistan, which is a Series object. The assignment
     con = df.iloc[0]
     return str(con)
-
+answer_zero()
 
 def answer_one():
     max_gold = 0
@@ -34,7 +34,7 @@ def answer_one():
             max_gold = df.iloc[i].iloc[1]
             con = df.iloc[i]
     return con
-
+answer_one()
 
 def answer_two():
     dif = 0
@@ -43,7 +43,7 @@ def answer_two():
             dif = df.iloc[i][1] - df.iloc[i][6]
             con = df.iloc[i]
     return str(dif)
-
+answer_two()
 
 def answer_three():
     lar_diff = 0
@@ -55,6 +55,7 @@ def answer_three():
             lar_diff = diff
             con = df.iloc[i]
     return str(con)
+answer_three()
 
 def answer_four():
     Points = list()
@@ -62,6 +63,7 @@ def answer_four():
         Points.append(df.iloc[i][11]*3 + df.iloc[i][12] + df.iloc[i][13])
     Points = pd.Series(Points) 
     return Points
+answer_four()
 
 def answer_five():
     county = 0
