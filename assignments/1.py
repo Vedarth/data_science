@@ -105,3 +105,19 @@ def answer_six():
     max_county.sort(reverse=True)
     return list(map(lambda x:(x[1]),max_county[0:3]))
 answer_six()
+
+def answer_seven():
+    max_abs_change = 0
+    abs_changes = list()
+    abs_change = 0
+    for i in range(3193):
+        abs_change = 0
+        abs_changes = []
+        for j in range(6):
+            abs_changes.append(census_df.iloc[i][9+j])
+            abs_change = abs(max(abs_changes) - min(abs_changes))
+        if max_abs_change < abs_change:
+            max_abs_change = abs_change
+            st = census_df.iloc[i].iloc[6]
+    return st
+answer_seven()
