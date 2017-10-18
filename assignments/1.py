@@ -63,20 +63,11 @@ def answer_four():
 answer_four()
 
 def answer_five():
-    county = 0
-    max_county = 0
-    j=1
-    st = len(census_df)
-    for i in range(3193):
-        county = 0
-        while census_df.iloc[i].iloc[3] == j:
-            county += (census_df.iloc[i]).iloc[4]
-            i+=1
-        j+=1
-        if max_county<county:
-            max_county = county
-            st = census_df.iloc[i][5]
-    return st
+    counties_df = census_df[census_df['SUMLEV'] == 50]
+    x = counties_df.groupby('STNAME').count()['SUMLEV']
+    ans = x.idxmax()
+    return ans
+
 answer_five()
 
 def answer_six():
