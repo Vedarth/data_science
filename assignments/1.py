@@ -128,18 +128,17 @@ def answer_eight():
     ctyname = list()
     for i in range(len(census_df)):
         if census_df.iloc[i][1] == 2 or census_df.iloc[i][1] == 1:
-            if str(census_df[i][6]).split()[0] == 'Washington':
-                if census_df[i][14] > census_df[i][13]:
-                    stname.append(census_df[i][5])
-                    ctyname.append(census_df[i][6])
-                    index_0.append(census_df.index[i])
+            if str(census_df.iloc[i][6]).split()[0] == 'Washington':
+                if census_df.iloc[i][14] > census_df.iloc[i][13]:
+                    stname.append(census_df.iloc[i][5])
+                    ctyname.append(census_df.iloc[i][6])
+                    index_o.append(census_df.index[i])
     
     standct = list()
     for i in range(len(stname)):
         st,ct = stname[i], ctyname[i]
-        st_ct = {'STNAME':st, 'CTYNAME':ct}
+        st_ct = pd.Series({'STNAME':st, 'CTYNAME':ct})
         standct.append(st_ct)
-    standct = pd.Series(standct)
-    df = pd.DataFrame([standct], index =index_0)
+    df = pd.DataFrame(standct, index =index_o)
     return df
 answer_eight()
