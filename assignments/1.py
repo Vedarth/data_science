@@ -77,22 +77,8 @@ def answer_seven():
 answer_seven()
 
 def answer_eight():
-    index_o = list()
-    stname = list()
-    ctyname = list()
-    for i in range(len(census_df)):
-        if census_df.iloc[i][1] == 2 or census_df.iloc[i][1] == 1:
-            if str(census_df.iloc[i][6]).split()[0] == 'Washington':
-                if census_df.iloc[i][14] > census_df.iloc[i][13]:
-                    stname.append(census_df.iloc[i][5])
-                    ctyname.append(census_df.iloc[i][6])
-                    index_o.append(census_df.index[i])
-    
-    standct = list()
-    for i in range(len(stname)):
-        st,ct = stname[i], ctyname[i]
-        st_ct = pd.Series({'STNAME':st, 'CTYNAME':ct})
-        standct.append(st_ct)
-    df = pd.DataFrame(standct, index =index_o)
-    return df
+    counties_df = census_df[census_df['SUMLEV'] == 50]
+    ans = counties_df[((counties_df['REGION']==1)|(counties_df['REGION']==2))&(counties_df['CTYNAME']=='Washington County')&(counties_df['POPESTIMATE2015']>counties_df['POPESTIMATE2014'])][['STNAME','CTYNAME']]
+    return ans
+
 answer_eight()
