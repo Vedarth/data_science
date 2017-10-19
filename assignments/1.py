@@ -35,12 +35,9 @@ def answer_one():
 answer_one()
 
 def answer_two():
-    dif = 0
-    for i in range(len(df)):
-        if dif < (df.iloc[i][1] - df.iloc[i][6]):
-            dif = df.iloc[i][1] - df.iloc[i][6]
-            con = df.iloc[i]
-    return str(dif)
+    x = max(df['Gold'] - df['Gold.1'])
+    ans = df[(df['Gold'] - df['Gold.1']) == x].index.tolist()
+    return ans[0]
 answer_two()
 
 def answer_three():
