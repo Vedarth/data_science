@@ -41,15 +41,9 @@ def answer_two():
 answer_two()
 
 def answer_three():
-    lar_diff = 0
-    for i in range(len(df)):
-        summ_gold = df.iloc[i][1]
-        win_gold = df.iloc[i][6]
-        diff = (summ_gold - win_gold)/(summ_gold + win_gold)
-        if (lar_dif < diff) and (summ_gold>=1) and (win_gold>=1):
-            lar_diff = diff
-            con = df.iloc[i]
-    return str(con)
+    df_gold = df[(df['Gold']>0) & (df['Gold.1']>0)]
+    df_max_diff = (abs(df_gold['Gold']-df_gold['Gold.1'])/df_gold['Gold.2'])
+    return df_max_diff.idxmax()
 answer_three()
 
 def answer_four():
