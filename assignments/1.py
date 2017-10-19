@@ -28,12 +28,10 @@ def answer_zero():
 answer_zero()
 
 def answer_one():
-    max_gold = 0
-    for i in range(len(df)):
-        if max_gold < df.iloc[i].iloc[1]:
-            max_gold = df.iloc[i].iloc[1]
-            con = df.iloc[i]
-    return con
+    x = max(df['Gold'])
+    ans = df[df['Gold'] == x].index.tolist()
+    return ans[0]
+
 answer_one()
 
 def answer_two():
